@@ -6,18 +6,13 @@ class Quiz:
     #FORMATTING THE BACKGROUND COLOUR FOR MAIN SCREEN (temporary color = light blue)
     background_color: "light_blue"
 
-    #CODE FOR MAIN MENU QUIZ GUI
-    self.mainquiz_frame = frame(width = 400, height = 400,
-                            pady = 10)
-    self.mainquiz_frame.grid()
-
     #FORMATTING MAIN MENU GUI
-    self.mainquiz_frame = frame(width = 400, height = 400,
+    self.mainmenuquiz_frame = frame(width = 400, height = 400,
                                 pady = 10, bg = background_color)
-    self.main_quiz_frame.grid()
+    self.mainmenuquiz_frame.grid()
 
     #Row 0 - MAIN MENU QUIZ HEADING
-    self.quiz_heading_label = label(self.mainquiz_frame,
+    self.quiz_heading_label = label(self.mainmenuquiz_frame,
                                     text = "QUIZ",
                                     font = "Verdana 20 bold",
                                     bg = background_color,
@@ -34,5 +29,6 @@ class Quiz:
     self.quiz_instructions_label.grid(row=1)
 
     #ROW 2 -  ENTRY FOR GUI
-
+    self.username_entry = Entry(self.mainmenuquiz_frame,
+                                width = 20, )
                                                 
