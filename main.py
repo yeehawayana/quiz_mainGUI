@@ -30,5 +30,7 @@ class Quiz:
 
     #ROW 2 -  ENTRY FOR GUI
     self.username_entry = Entry(self.mainmenuquiz_frame,
-                                width = 20, )
+                                width = 20, font = "Arial 14 bold")
+    self.username_entry.grid(row=2)
+    
                                                 
