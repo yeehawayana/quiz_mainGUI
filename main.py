@@ -33,4 +33,12 @@ class Quiz:
                                 width = 20, font = "Arial 14 bold")
     self.username_entry.grid(row=2)
     
-                                                
+    #ROW 3 - BUTTONS 
+
+    
+#Main Routine
+if __name__ == "__main__":
+  root = Tk()
+  root.title("Main Menu")
+  something = Quiz(root)
+  root.mainloop()
