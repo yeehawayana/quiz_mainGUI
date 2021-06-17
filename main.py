@@ -59,18 +59,29 @@ class Quiz:
 class Results:
     #Setting up frame for result GUI
     def __init__ (self, partner):
-      background_color = "orange"
+      background_color="orange"
 
+      #Results Button becomes dsiabled when results GUI pops up
       partner.results_button.config(state=DISABLED)
-      self.result_box = Toplevel()
+
+      self.result_box=Toplevel()
 
       #GUI FRAME for Results
-      self.results_frame = frame(self.result_box, bg=background)
-      self.results_frame.grid(row=0)
+      self.results_frame=Frame(self.results_box, bg=background_color, width=200)
+      self.results_frame.grid()
 
-      self.results_heading = Label(self.results_frame, text="Results",
-                                  font="14 arial bold")
-      self.results_heading.grid(row=1)
+      #Text for Results GUI - ROW 0
+      self.results_heading=Label(self.results_frame, text="Results",
+                                  font="arial 14 bold", bg=background_color)
+      self.results_heading.grid(row=0)
+
+      #ROW 1 -
+      self.results_text=Label(self.help_frame, text="",
+                        justify=LEFT, width=40, bg=background, wrap=250)
+      self.results_text.grid(column=0, row=1)#column=0 added - SGF
+
+
+
 
 
 #Main Routine
