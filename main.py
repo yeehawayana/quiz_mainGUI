@@ -50,9 +50,29 @@ class Quiz:
                                 pady=10, text="Results", bg="yellow", command=self.results)
     self.results_button.grid(row=0, column=1)
 
+  def results(self):
+    print("You have asked for your results")
+    get_results = Results(self)
+    get_results.results_text.configure(text="Here the results done below")
+
+
+class Results:
     #Setting up frame for result GUI
-    
-        
+    def __init__ (self, partner):
+      background_color = "orange"
+
+      partner.results_button.config(state=DISABLED)
+      self.result_box = Toplevel()
+
+      #GUI FRAME for Results
+      self.results_frame = frame(self.result_box, bg=background)
+      self.results_frame.grid(row=0)
+
+      self.results_heading = Label(self.results_frame, text="Results",
+                                  font="14 arial bold")
+      self.results_heading.grid(row=1)
+
+
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
