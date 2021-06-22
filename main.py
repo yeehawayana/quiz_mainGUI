@@ -67,7 +67,7 @@ class Results:
       self.results_box=Toplevel()
 
       #GUI FRAME for Results
-      self.results_frame=Frame(self.results_box, bg=background_color, width=200)
+      self.results_frame=Frame(self.results_box, bg=background_color, width=100)
       self.results_frame.grid()
 
       #Text for Results GUI - ROW 0
@@ -81,6 +81,9 @@ class Results:
       self.results_text.grid(column=0, row=1)#column=0 added - SGF
 
       #ROW 2 - Return to main menu button
+      self.results_button = Button(self.results_frame, padx=10, pady=10,
+                                  text="Return to Main Menu")
+      self.results_button.grid(row=2, pady=5)
 
 
 
