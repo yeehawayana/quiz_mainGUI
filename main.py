@@ -64,7 +64,7 @@ class Results:
       #Results Button becomes dsiabled when results GUI pops up
       partner.results_button.config(state=DISABLED)
 
-      self.result_box=Toplevel()
+      self.results_box=Toplevel()
 
       #GUI FRAME for Results
       self.results_frame=Frame(self.results_box, bg=background_color, width=200)
@@ -75,11 +75,12 @@ class Results:
                                   font="arial 14 bold", bg=background_color)
       self.results_heading.grid(row=0)
 
-      #ROW 1 -
-      self.results_text=Label(self.help_frame, text="",
-                        justify=LEFT, width=40, bg=background, wrap=250)
+      #ROW 1 - Results pops up 
+      self.results_text=Label(self.results_frame, text="",
+                        justify=LEFT, width=40, bg=background_color, wrap=250)
       self.results_text.grid(column=0, row=1)#column=0 added - SGF
 
+      #ROW 2 - Return to main menu button
 
 
 
