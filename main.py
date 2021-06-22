@@ -82,8 +82,12 @@ class Results:
 
       #ROW 2 - Return to main menu button
       self.results_button = Button(self.results_frame, padx=10, pady=10,
-                                  text="Return to Main Menu")
+                                  text="Return to Main Menu", command=self.close_results)
       self.results_button.grid(row=2, pady=5)
+
+    def close_results(self):
+      root.deiconify()
+      self.results_box.destroy()
 
 
 
