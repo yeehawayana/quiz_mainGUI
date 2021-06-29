@@ -42,7 +42,8 @@ class Main_Menu:
     
     #ROW 4 - QUIZ BUTTON 
     self.quiz_button = Button(self.mainmenu_results_frame, width=10, padx=10,
-                              pady=10, text="Quiz yourself", bg="lavender")
+                              pady=10, text="Quiz yourself", bg="lavender",
+                              command=self.quiz)
     self.quiz_button.grid(row=0, column=0)
 
     #ROW 4 - RESULTS BUTTON
@@ -56,8 +57,9 @@ class Main_Menu:
     get_results.results_text.configure(text="Here the results done below")
 
   def quiz(self):
+    print("You have asked for the quiz")
     go_quiz = Quiz(self)
-    go_quiz.quiz_text.configure(text="Quiz")
+    go_quiz.quiz_text.configure(text="Welcome to the quiz")
 
 
 class Results:
@@ -75,12 +77,12 @@ class Results:
       self.results_frame.grid()
 
       #Text for Results GUI - ROW 0
-      self.results_heading=Label(self.results_frame, text="Results",
+      self.results_heading = Label(self.results_frame, text="Results",
                                   font="arial 14 bold", bg=background_color)
       self.results_heading.grid(row=0)
 
       #ROW 1 - Results pops up 
-      self.results_text=Label(self.results_frame, text="",
+      self.results_text = Label(self.results_frame, text="",
                         justify=LEFT, width=40, bg=background_color, wrap=250)
       self.results_text.grid(column=0, row=1)#column=0 added - SGF
 
@@ -105,11 +107,17 @@ class Quiz:
     self.quiz_box = Toplevel()
 
     #GUI FRAME for Quiz
-    self.quiz_frame=Frame(self.quiz_box, bg=background_color, width=150)
+    self.quiz_frame = Frame(self.quiz_box, bg=background_color, width=150)
     self.quiz_frame.grid()
 
-    #ROW 0 - 
+    #ROW 0 - Heading for GUI
+    self.quiz_heading = Label(self.quiz_frame, text="QUIZ YOURSELF",
+                            font="arial 16 bold", bg=background_color)
+    self.quiz_heading.grid(row=0)
 
+    #ROW 1 - Results pops up
+    self.quiz_label=Frame(self.quiz_frame, text="")
+    
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
