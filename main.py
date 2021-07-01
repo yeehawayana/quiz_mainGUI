@@ -59,7 +59,7 @@ class Main_Menu:
   def quiz(self):
     print("You have asked for the quiz")
     go_quiz = Quiz(self)
-    go_quiz.quiz_text.configure(text="Welcome to the quiz")
+    go_quiz.quiz_text.configure(text="Welcome to the quiz [INFORMATION]")
 
 
 class Results:
@@ -99,25 +99,50 @@ class Results:
 class Quiz:
   def __init__(self, partner):
     #Background colour for quiz GUI
-    background_color: "light pink"
+    background_color = "light pink"
 
     #disabling quiz button when quiz GUI pops up
     partner.quiz_button.config(state=DISABLED)
 
-    self.quiz_box = Toplevel()
+    self.quiz_box= Toplevel()
 
     #GUI FRAME for Quiz
-    self.quiz_frame = Frame(self.quiz_box, bg=background_color, width=150)
+    self.quiz_frame= Frame(self.quiz_box, bg=background_color, width=150)
     self.quiz_frame.grid()
 
     #ROW 0 - Heading for GUI
-    self.quiz_heading = Label(self.quiz_frame, text="QUIZ YOURSELF",
+    self.quiz_heading= Label(self.quiz_frame, text="QUIZ YOURSELF",
                             font="arial 16 bold", bg=background_color)
     self.quiz_heading.grid(row=0)
 
     #ROW 1 - Results pops up
-    self.quiz_label=Frame(self.quiz_frame, text="")
+    self.quiz_label= label(self.quiz_frame, text="HIHI", justify=LEFT,
+                          width=50, bg=background_color, wrap=300)
+    self.quiz_label.grid(row=1)
     
+    #ROW 2 - QUIZ POPS UP
+
+    #ROW 3 - ENTRY FOR QUIZ
+    self.quiz_entry= Entry(self.quiz_frame, width=15, font ="Arial 14")
+    self.quiz_entry.grid(row=3, column=0)
+    
+    #ROW 3 - SUBMIT BUTTON
+    self.quiz_submit_button= Button(self.quiz_frame, padx=10,pady=10)
+    self.quiz_submit_button.grid(row=3, column=1)
+    
+    #ROW 4 - CORRECT OR WRONG ANSWER
+
+    #ROW 5 - EASY BUTTON
+
+    #ROW 5 - MEDIUM BUTTON
+
+    #ROW 5 - HARD BUTTON
+
+    #ROW 6 - RESULTS BUTTON
+
+    #ROW 6 - RETURN TO MAIN MENU BUTTON
+
+
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
