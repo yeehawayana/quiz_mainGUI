@@ -107,7 +107,7 @@ class Quiz:
     self.quiz_box= Toplevel()
 
     #GUI FRAME for Quiz
-    self.quiz_frame= Frame(self.quiz_box, bg=background_color, width=150)
+    self.quiz_frame= Frame(self.quiz_box, bg=background_color, width=100)
     self.quiz_frame.grid()
 
     #ROW 0 - Heading for GUI
@@ -116,19 +116,25 @@ class Quiz:
     self.quiz_heading.grid(row=0)
 
     #ROW 1 - Results pops up
-    self.quiz_label= label(self.quiz_frame, text="HIHI", justify=LEFT,
-                          width=50, bg=background_color, wrap=300)
-    self.quiz_label.grid(row=1)
+    self.quiz_text= Label(self.quiz_frame, text="", justify=LEFT,
+                          width=50, bg=background_color, wrap=200)
+    self.quiz_text.grid(row=1)
     
     #ROW 2 - QUIZ POPS UP
 
+    #FRAME FOR ENTRY AND SUBMIT BUTTON
+    self.quiz_entry_submitbutton_frame = Frame(self.quiz_frame, width=20)
+    self.quiz_entry_submitbutton_frame.grid(row=3)
+    
     #ROW 3 - ENTRY FOR QUIZ
-    self.quiz_entry= Entry(self.quiz_frame, width=15, font ="Arial 14")
-    self.quiz_entry.grid(row=3, column=0)
+    self.quiz_entry= Entry(self.quiz_entry_submitbutton_frame, 
+                          font ="Arial 14", width=15)
+    self.quiz_entry.grid(row=0, column=0)
     
     #ROW 3 - SUBMIT BUTTON
-    self.quiz_submit_button= Button(self.quiz_frame, padx=10,pady=10)
-    self.quiz_submit_button.grid(row=3, column=1)
+    self.quiz_submit_button= Button(self.quiz_entry_submitbutton_frame, 
+                                    text="SUBMIT", font="arial 10 italic", bg="white", width=5)
+    self.quiz_submit_button.grid(row=0, column=1)
     
     #ROW 4 - CORRECT OR WRONG ANSWER
 
