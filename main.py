@@ -70,7 +70,7 @@ class Results:
       #Results Button becomes dsiabled when results GUI pops up
       partner.results_button.config(state=DISABLED)
 
-      self.results_box=Toplev
+      self.results_box=Toplevel()
 
       #GUI FRAME for Results
       self.results_frame=Frame(self.results_box, bg=background_color, width=100)
@@ -156,9 +156,11 @@ class Quiz:
     self.hard_button.grid(row=0, column=3)                          
     
     #FRAME FOR RESULTS AND RETURN BUTTONS
+    self.return_results_buttons_frame = Frame(self.quiz_frame, width=20)
+    self.return_results_buttons_frame.grid(row=6)
     
     #ROW 6 - RESULTS BUTTON
-
+    self.return
     #ROW 6 - RETURN TO MAIN MENU BUTTON
 
 
