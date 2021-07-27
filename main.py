@@ -37,7 +37,8 @@ class Main_Menu:
     #ROW 3 - WARNING MESSAGE
     
     #ROW 4 - QUIZ AND RESULT BUTTONS
-    self.mainmenu_results_frame = Frame(self.mainmenuquiz_frame)
+    self.mainmenu_results_frame = Frame(self.mainmenuquiz_frame,
+                                        bg=background_color)
     self.mainmenu_results_frame.grid(row=4)
     
     #ROW 4 - QUIZ BUTTON 
@@ -139,7 +140,8 @@ class Quiz:
     #ROW 4 - CORRECT OR WRONG ANSWER
 
     #FRAME FOR EASY, MEDIUM AND HARD BUTTON
-    self.quiz_buttons_frame = Frame(self.quiz_frame, width=15)
+    self.quiz_buttons_frame = Frame(self.quiz_frame, width=15, pady=10,
+                                    bg=background_color)
     self.quiz_buttons_frame.grid(row=5)
 
     #ROW 5 - EASY BUTTON
@@ -165,9 +167,14 @@ class Quiz:
     self.return_button.grid(row=0, column=0)
     #ROW 6 - RETURN TO MAIN MENU BUTTON
     self.results_button = Button(self.return_results_buttons_frame, width=10,
-                                text="Results")
+                                text="Results", command=self.results)
     self.results_button.grid(row=0,column=1)
 
+  def results(self):
+    print("You have asked for your results")
+    get_results = Results(self)
+    get_results.results_text.configure(text="Here the results done below")
+    
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
