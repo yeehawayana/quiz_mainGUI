@@ -160,9 +160,13 @@ class Quiz:
     self.return_results_buttons_frame.grid(row=6)
     
     #ROW 6 - RESULTS BUTTON
-    self.return
+    self.return_button = Button(self.return_results_buttons_frame, width=10, 
+                                text="Return")
+    self.return_button.grid(row=0, column=0)
     #ROW 6 - RETURN TO MAIN MENU BUTTON
-
+    self.results_button = Button(self.return_results_buttons_frame, width=10,
+                                text="Results")
+    self.results_button.grid(row=0,column=1)
 
 #Main Routine
 if __name__ == "__main__":
