@@ -14,7 +14,7 @@ class Main_Menu:
 
     #Row 0 - MAIN MENU QUIZ HEADING
     self.mainmenu_heading_label = Label(self.mainmenuquiz_frame,
-                                    text="QUIZ",
+                                    text="Welcome",
                                     font="Verdana 20 bold",
                                     bg=background_color,
                                     pady=10, width=10)
@@ -29,6 +29,7 @@ class Main_Menu:
                                         pady=10, justify=LEFT)
     self.mainmenu_instructions_label.grid(row=1)
 
+  
     #ROW 2 -  ENTRY FOR GUI
     self.username_entry = Entry(self.mainmenuquiz_frame,
                                 width=15, font ="Arial 14")
@@ -44,12 +45,12 @@ class Main_Menu:
     #ROW 4 - QUIZ BUTTON 
     self.quiz_button = Button(self.mainmenu_results_frame, width=10, padx=10,
                               pady=10, text="Quiz yourself", bg="lavender",
-                              command=self.quiz)
+                              command= self.quiz)
     self.quiz_button.grid(row=0, column=0)
 
     #ROW 4 - RESULTS BUTTON
     self.results_button = Button(self.mainmenu_results_frame, width=5, padx=10,
-                                pady=10, text="Results", bg="yellow", command=self.results)
+                                pady=10, text="Results", bg="yellow", command= self.results)
     self.results_button.grid(row=0, column=1)
 
   def results(self):
@@ -89,9 +90,10 @@ class Results:
 
       #ROW 2 - Return to main menu button
       self.results_button = Button(self.results_frame, padx=10, pady=10,
-                                  text="Return to Main Menu", command=self.close_results)
+                                  text="Return to Main Menu", command= self.close_results)
       self.results_button.grid(row=2, pady=5)
 
+    
     def close_results(self):
       root.deiconify()
       self.results_box.destroy()
@@ -162,22 +164,28 @@ class Quiz:
     self.return_results_buttons_frame.grid(row=6)
     
     #ROW 6 - RESULTS BUTTON
-    self.return_button = Button(self.return_results_buttons_frame, width=10, 
-                                text="Return")
-    self.return_button.grid(row=0, column=0)
+    self.quiz_button = Button(self.return_results_buttons_frame, width=10,
+                                text="Return", command= self.close_results)
+    self.quiz_button.grid(row=0, column=0)
+
     #ROW 6 - RETURN TO MAIN MENU BUTTON
     self.results_button = Button(self.return_results_buttons_frame, width=10,
-                                text="Results", command=self.results)
+                                text="Results", command= partial(self.results, partner))
     self.results_button.grid(row=0,column=1)
 
-  def results(self):
+  def results(self, partner):
     print("You have asked for your results")
     get_results = Results(self)
     get_results.results_text.configure(text="Here the results done below")
-    
+
+  def close_results(self, partner):
+      root.deiconify()
+      self.quiz_box.destroy()
+      partner.quiz_button.config(state = NORMAL)
+
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
-  root.title("Main Menu")
+  root.title("Quiz")
   something = Main_Menu()
   root.mainloop()
