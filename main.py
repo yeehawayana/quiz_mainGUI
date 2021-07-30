@@ -72,6 +72,7 @@ class Results:
       #Results Button becomes dsiabled when results GUI pops up
       partner.results_button.config(state=DISABLED)
 
+      #Sets up window 
       self.results_box=Toplevel()
 
       #GUI FRAME for Results
@@ -90,14 +91,15 @@ class Results:
 
       #ROW 2 - Return to main menu button
       self.results_button = Button(self.results_frame, padx=10, pady=10,
-                                  text="Return to Main Menu", command= self.close_results)
+                                  text="Return to Main Menu",
+                                  command=partial(self.close_results, partner))
       self.results_button.grid(row=2, pady=5)
 
     
-    def close_results(self):
+    def close_results(self,partner):
       root.deiconify()
       self.results_box.destroy()
-      self.results_button.config(state=NORMAL)
+      partner.results_button.config(state=NORMAL)
 
 class Quiz:
   def __init__(self, partner):
@@ -165,7 +167,8 @@ class Quiz:
     
     #ROW 6 - RESULTS BUTTON
     self.quiz_button = Button(self.return_results_buttons_frame, width=10,
-                                text="Return", command= self.close_results)
+                                text="Return", 
+                                command= partial(self.close_results, partner))
     self.quiz_button.grid(row=0, column=0)
 
     #ROW 6 - RETURN TO MAIN MENU BUTTON
