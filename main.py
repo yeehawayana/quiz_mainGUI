@@ -125,17 +125,17 @@ class Quiz:
                           width=50, bg=background_color, wrap=200)
     self.quiz_text.grid(row=1)
     
-    #ROW 2 - QUIZ POPS UP
-
     #FRAME FOR ENTRY AND SUBMIT BUTTON
     self.quiz_entry_submitbutton_frame = Frame(self.quiz_frame, width=20)
     self.quiz_entry_submitbutton_frame.grid(row=3)
     
-    #ROW 3 - ENTRY FOR QUIZ
+    #ROW 2 - ENTRY FOR QUIZ
     self.quiz_entry= Entry(self.quiz_entry_submitbutton_frame, 
                           font ="Arial 14", width=15)
     self.quiz_entry.grid(row=0, column=0)
-    
+
+    #ROW 2 - QUIZ POPS UP
+
     #ROW 3 - SUBMIT BUTTON
     self.quiz_submit_button= Button(self.quiz_entry_submitbutton_frame, 
                                     text="SUBMIT", font="arial 10 italic", bg="white", width=5)
@@ -150,15 +150,15 @@ class Quiz:
 
     #ROW 5 - EASY BUTTON
     self.easy_button = Button(self.quiz_buttons_frame, width=5,
-                              text="Easy")
+                              text="Easy", command=self.easy_quiz)
     self.easy_button.grid(row=0, column=1)
     #ROW 5 - MEDIUM BUTTON
     self.medium_button = Button(self.quiz_buttons_frame, width=5,
-                                text="Medium")
+                                text="Medium", command=self.medium_quiz)
     self.medium_button.grid(row=0, column=2)
     #ROW 5 - HARD BUTTON
     self.hard_button = Button(self.quiz_buttons_frame, width=5,
-                              text="Hard")
+                              text="Hard", command=self.hard_quiz)
     self.hard_button.grid(row=0, column=3)                          
     
     #FRAME FOR RESULTS AND RETURN BUTTONS
@@ -186,6 +186,15 @@ class Quiz:
       self.quiz_box.destroy()
       partner.quiz_button.config(state = NORMAL)
 
+  def easy_quiz(self):
+    print("Answers will appear here")
+
+  def medium_quiz(self):
+    print("Answers will appear here")
+
+  def hard_quiz(self):
+    print("Answers will appear here")
+    
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
