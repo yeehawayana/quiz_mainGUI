@@ -135,6 +135,10 @@ class Quiz:
     self.quiz_entry.grid(row=0, column=0)
 
     #ROW 2 - QUIZ POPS UP
+    self.quiz_label = Label(self.quiz_frame, font="Arial 14 bold",
+                                     fg="purple", bg=background_color,
+                                     pady=10, text="Quiz will appear here")
+    self.quiz_label.grid(row=4)
 
     #ROW 3 - SUBMIT BUTTON
     self.quiz_submit_button= Button(self.quiz_entry_submitbutton_frame, 
@@ -152,10 +156,12 @@ class Quiz:
     self.easy_button = Button(self.quiz_buttons_frame, width=5,
                               text="Easy", command=self.easy_quiz)
     self.easy_button.grid(row=0, column=1)
+
     #ROW 5 - MEDIUM BUTTON
     self.medium_button = Button(self.quiz_buttons_frame, width=5,
                                 text="Medium", command=self.medium_quiz)
     self.medium_button.grid(row=0, column=2)
+
     #ROW 5 - HARD BUTTON
     self.hard_button = Button(self.quiz_buttons_frame, width=5,
                               text="Hard", command=self.hard_quiz)
@@ -194,7 +200,7 @@ class Quiz:
 
   def hard_quiz(self):
     print("Answers will appear here")
-    
+
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
