@@ -6,10 +6,10 @@ import random
 class Main_Menu:
   def __init__(self):
     #FORMATTING THE BACKGROUND COLOUR FOR MAIN SCREEN (temporary color = light blue)
-    background_color = "light blue"
+    background_color = "light steel blue"
 
     #FORMATTING MAIN MENU GUI
-    self.mainmenuquiz_frame = Frame(pady=10, bg=background_color, width=200)
+    self.mainmenuquiz_frame = Frame(pady=10, bg=background_color, width=200, padx=10)
     self.mainmenuquiz_frame.grid()
 
     #Row 0 - MAIN MENU QUIZ HEADING
@@ -25,8 +25,8 @@ class Main_Menu:
                                               " Here you will be quized on your knowledge on _."
                                               " Please enter a username in order to complete the quiz.",
                                         font="Helvetic 11 italic", wrap=200,
-                                        bg=background_color, padx=10,
-                                        pady=10, justify=LEFT)
+                                        bg=background_color, padx=15,
+                                        pady=5, justify=LEFT)
     self.mainmenu_instructions_label.grid(row=1)
 
   
@@ -39,18 +39,18 @@ class Main_Menu:
     
     #ROW 4 - QUIZ AND RESULT BUTTONS
     self.mainmenu_results_frame = Frame(self.mainmenuquiz_frame,
-                                        bg=background_color)
+                                        bg=background_color, padx=10, pady=5)
     self.mainmenu_results_frame.grid(row=4)
     
     #ROW 4 - QUIZ BUTTON 
     self.quiz_button = Button(self.mainmenu_results_frame, width=10, padx=10,
-                              pady=10, text="Quiz yourself", bg="lavender",
+                              pady=10, text="Quiz yourself", font="arial 10 bold", bg="white smoke",
                               command= self.quiz)
     self.quiz_button.grid(row=0, column=0)
 
     #ROW 4 - RESULTS BUTTON
     self.results_button = Button(self.mainmenu_results_frame, width=5, padx=10,
-                                pady=10, text="Results", bg="yellow", command= self.results)
+                                pady=10, text="Results", bg="white smoke",font="arial 10 bold", command= self.results)
     self.results_button.grid(row=0, column=1)
 
   def results(self):
@@ -136,7 +136,7 @@ class Quiz:
 
     #ROW 2 - QUIZ POPS UP
     self.quiz_label = Label(self.quiz_frame, font="Arial 14 bold",
-                                     fg="purple", bg=background_color,
+                                     fg="black", bg=background_color,
                                      pady=10, text="Quiz will appear here")
     self.quiz_label.grid(row=4)
 
