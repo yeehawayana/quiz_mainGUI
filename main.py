@@ -67,7 +67,7 @@ class Main_Menu:
 class Results:
     #Setting up frame for result GUI
     def __init__ (self, partner):
-      background_color="orange"
+      background_color="thistle"
 
       #Results Button becomes dsiabled when results GUI pops up
       partner.results_button.config(state=DISABLED)
@@ -125,28 +125,6 @@ class Quiz:
                           width=50, bg=background_color, wrap=200)
     self.quiz_text.grid(row=1)
     
-    #FRAME FOR ENTRY AND SUBMIT BUTTON
-    self.quiz_entry_submitbutton_frame = Frame(self.quiz_frame, width=20)
-    self.quiz_entry_submitbutton_frame.grid(row=3)
-    
-    #ROW 2 - ENTRY FOR QUIZ
-    self.quiz_entry= Entry(self.quiz_entry_submitbutton_frame, 
-                          font ="Arial 14", width=15)
-    self.quiz_entry.grid(row=0, column=0)
-
-    #ROW 2 - QUIZ POPS UP
-    self.quiz_label = Label(self.quiz_frame, font="Arial 14 bold",
-                                     fg="black", bg=background_color,
-                                     pady=10, text="Quiz will appear here")
-    self.quiz_label.grid(row=4)
-
-    #ROW 3 - SUBMIT BUTTON
-    self.quiz_submit_button= Button(self.quiz_entry_submitbutton_frame, 
-                                    text="SUBMIT", font="arial 10 italic", bg="white", width=5)
-    self.quiz_submit_button.grid(row=0, column=1)
-    
-    #ROW 4 - CORRECT OR WRONG ANSWER
-
     #FRAME FOR EASY, MEDIUM AND HARD BUTTON
     self.quiz_buttons_frame = Frame(self.quiz_frame, width=15, pady=10,
                                     bg=background_color)
@@ -154,17 +132,23 @@ class Quiz:
 
     #ROW 5 - EASY BUTTON
     self.easy_button = Button(self.quiz_buttons_frame, width=5,
-                              text="Easy", command=self.easy_quiz)
+                              text="Easy",
+                              bg="white smoke",
+                              command=self.easy_quiz)
     self.easy_button.grid(row=0, column=1)
 
     #ROW 5 - MEDIUM BUTTON
     self.medium_button = Button(self.quiz_buttons_frame, width=5,
-                                text="Medium", command=self.medium_quiz)
+                                text="Medium",
+                                bg="white smoke", 
+                                command= self.medium_quiz)
     self.medium_button.grid(row=0, column=2)
 
     #ROW 5 - HARD BUTTON
     self.hard_button = Button(self.quiz_buttons_frame, width=5,
-                              text="Hard", command=self.hard_quiz)
+                              text="Hard",
+                              bg="white smoke",
+                              command=self.hard_quiz)
     self.hard_button.grid(row=0, column=3)                          
     
     #FRAME FOR RESULTS AND RETURN BUTTONS
@@ -173,12 +157,14 @@ class Quiz:
     
     #ROW 6 - RESULTS BUTTON
     self.quiz_button = Button(self.return_results_buttons_frame, width=10,
-                                text="Return", 
+                                text="Return",
+                                bg="white smoke",
                                 command= partial(self.close_results, partner))
     self.quiz_button.grid(row=0, column=0)
 
     #ROW 6 - RETURN TO MAIN MENU BUTTON
     self.results_button = Button(self.return_results_buttons_frame, width=10,
+                                bg="white smoke",
                                 text="Results", command= partial(self.results, partner))
     self.results_button.grid(row=0,column=1)
 
@@ -193,13 +179,14 @@ class Quiz:
       partner.quiz_button.config(state = NORMAL)
 
   def easy_quiz(self):
-    print("Answers will appear here")
+
+    print("The quiz and answers will appear here")
 
   def medium_quiz(self):
-    print("Answers will appear here")
+    print("The quiz and answers will appear here")
 
   def hard_quiz(self):
-    print("Answers will appear here")
+    print("The quiz and answers will appear here")
 
 #Main Routine
 if __name__ == "__main__":
