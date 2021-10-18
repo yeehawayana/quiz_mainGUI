@@ -1,5 +1,4 @@
 from tkinter import*
-from data import questions
 from functools import partial   # To prevent unwanted windows
 import random
 
@@ -183,12 +182,6 @@ class Quiz:
 
   def easy_quiz(self):
     print("The quiz and answers will appear here")
-    for question in questions:
-      print(question['question'])
-
-      for answer in question['answers']:
-        print(answer['answer'])
-        i = 0
 
   def medium_quiz(self):
     print("The quiz and answers will appear here")
