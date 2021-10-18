@@ -7,6 +7,7 @@ authors = ["AyanaLoweMcPher <<>>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 pywaffle = "^0.6.1"
+data = "^0.4"
 
 [tool.poetry.dev-dependencies]
 

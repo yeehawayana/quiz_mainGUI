@@ -1,4 +1,5 @@
 from tkinter import*
+from data import questions
 from functools import partial   # To prevent unwanted windows
 import random
 
@@ -45,7 +46,8 @@ class Main_Menu:
     #ROW 4 - QUIZ BUTTON 
     self.quiz_button = Button(self.mainmenu_results_frame, width=10, padx=10,
                               pady=10, text="Quiz yourself", font="arial 10 bold", bg="white smoke",
-                              command= self.quiz)
+                              command= self.quiz,
+                                      )
     self.quiz_button.grid(row=0, column=0)
 
     #ROW 4 - RESULTS BUTTON
@@ -72,7 +74,7 @@ class Results:
       #Results Button becomes dsiabled when results GUI pops up
       partner.results_button.config(state=DISABLED)
 
-      #Sets up window 
+      #Sets up window for result GUI 
       self.results_box=Toplevel()
 
       #GUI FRAME for Results
@@ -159,6 +161,7 @@ class Quiz:
     self.quiz_button = Button(self.return_results_buttons_frame, width=10,
                                 text="Return",
                                 bg="white smoke",
+                                #closes the Quiz Yourself GUI and enableds quiz yourself GUI
                                 command= partial(self.close_results, partner))
     self.quiz_button.grid(row=0, column=0)
 
@@ -179,8 +182,13 @@ class Quiz:
       partner.quiz_button.config(state = NORMAL)
 
   def easy_quiz(self):
-
     print("The quiz and answers will appear here")
+    for question in questions:
+      print(question['question'])
+
+      for answer in question['answers']:
+        print(answer['answer'])
+        i = 0
 
   def medium_quiz(self):
     print("The quiz and answers will appear here")
@@ -188,6 +196,8 @@ class Quiz:
   def hard_quiz(self):
     print("The quiz and answers will appear here")
 
+def username(self):
+  print("hello")
 #Main Routine
 if __name__ == "__main__":
   root = Tk()
